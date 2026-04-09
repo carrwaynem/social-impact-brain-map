@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brain Map Delivery — Social Impact AI Transitional Housing LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0f1a;
+    --surface: #111827;
+    --surface-2: #1a2236;
+    --border: rgba(255,255,255,0.07);
+    --text: #f0f4ff;
+    --text-muted: #8896b3;
+    --text-faint: #4a5568;
+    --accent: #3b9eff;
+    --accent-soft: rgba(59,158,255,0.12);
+    --accent-glow: rgba(59,158,255,0.05);
+    --gold: #e8c97a;
+    --gold-soft: rgba(232,201,122,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 32px 120px;
+  }
+
+  /* Header */
+  .header { margin-bottom: 72px; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    opacity: 0.85;
+  }
+
+  .eyebrow-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .header h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .header-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* Sections */
+  .section { margin-bottom: 64px; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(21px, 3vw, 27px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.32;
+    margin-bottom: 20px;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.78;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 56px 0;
+  }
+
+  /* Story block */
+  .story-block {
+    border-left: 2px solid rgba(59,158,255,0.2);
+    padding-left: 24px;
+    margin-bottom: 24px;
+  }
+
+  .story-block p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .pull-quote {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: italic;
+    color: var(--gold);
+    line-height: 1.5;
+    margin: 28px 0;
+    padding: 0 8px;
+  }
+
+  /* Align cards */
+  .align-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .align-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .align-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+    margin-top: 2px;
+  }
+
+  .align-body h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .align-body p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-top: 28px;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    line-height: 1.78;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .highlight-box p:last-child { margin-bottom: 0; }
+
+  /* Diverge split */
+  .diverge-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .diverge-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+
+  .diverge-card .founder-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .diverge-card.toni .founder-label { color: var(--accent); }
+  .diverge-card.tiffany .founder-label { color: var(--gold); }
+
+  .diverge-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ICP profiles */
+  .icp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .icp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .icp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0.5;
+  }
+
+  .icp-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .icp-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .anti-icp-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid rgba(255,100,100,0.4);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 10px;
+  }
+
+  .anti-icp-box .anti-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,120,120,0.7);
+    margin-bottom: 10px;
+  }
+
+  .anti-icp-box p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Behavior list */
+  .behavior-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .behavior-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .behavior-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .behavior-item p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Findings */
+  .findings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .finding-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .finding-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.35;
+  }
+
+  .finding-num {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text-faint);
+    line-height: 1;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .finding-body h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .finding-body p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Build sequence */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 28px;
+    position: relative;
+  }
+
+  .steps-list::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 17px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 18px 0;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-body h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    padding-top: 6px;
+  }
+
+  .step-body p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Closing CTA */
+  .closing-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 44px 40px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, var(--accent-glow), transparent 70%);
+    pointer-events: none;
+  }
+
+  .closing-block h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 20px;
+  }
+
+  .closing-block h3 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .closing-block p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.78;
+    max-width: 580px;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-faint);
+    letter-spacing: 0.04em;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand { font-size: 13px; color: var(--text-faint); font-weight: 500; }
+  .footer-brand span { color: var(--text-muted); }
+  .footer-note { font-size: 12px; color: var(--text-faint); font-style: italic; }
+
+  /* Responsive */
+  @media (max-width: 580px) {
+    .page { padding: 48px 20px 80px; }
+    .diverge-split { grid-template-columns: 1fr; }
+    .icp-grid { grid-template-columns: 1fr; }
+    .closing-block { padding: 32px 24px; }
+    .steps-list::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="eyebrow">
+      <div class="eyebrow-dot"></div>
+      Prepared for Toni &amp; Tiffany · Social Impact AI Transitional Housing LLC
+    </div>
+    <h1>Your Brain Map.<br><em>What we found and what it means.</em></h1>
+    <p class="header-sub">
+      A synthesis of both sessions. Where your intelligence aligns, where it diverges,
+      who your client actually is, and the sequence that unblocks everything else.
+    </p>
+  </header>
+
+  <!-- How This Was Built -->
+  <section class="section">
+    <div class="section-label">How This Was Built</div>
+    <h2>You showed up twenty minutes late.<br><em>The content theft stopped being the problem.</em></h2>
+
+    <div class="story-block">
+      <p>
+        You were on the phone with your attorney. Someone was stealing your content again.
+        Not the first time. You showed up anyway because that is who you are.
+      </p>
+      <p style="margin-top: 16px;">
+        We ran the session. I asked the questions I always ask. And somewhere in the middle of it,
+        the content theft stopped being the problem. The real problems were upstream.
+        That is what this document addresses.
+      </p>
+    </div>
+
+    <div class="pull-quote">
+      "I don't have access to a tool like that."<br>
+      You do. You just haven't had it built yet.
+    </div>
+
+    <p>
+      During the call I shared what fifteen minutes with the Business Brain produces — a complete
+      one-pager for a different client meeting I had later that evening. I got off the call and
+      built this before you could have assembled it yourselves. That is the point. Not that I
+      worked faster. The infrastructure holds the intelligence so the output does not wait on
+      anyone's schedule.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- What the Sessions Revealed -->
+  <section class="section">
+    <div class="section-label">What the Sessions Revealed</div>
+    <h2>You have built something your own mentor<br><em>says he has never seen before.</em></h2>
+
+    <p>
+      Fifteen years in transitional housing. A COO with AI and systems fluency.
+      A curriculum that teaches operators how to run the program before they acquire the property.
+      Three distinct audiences — operators, residents, and real estate professionals — served by
+      a single platform. No one else has packaged this.
+    </p>
+    <p>
+      The business is not struggling because the product is weak. It is not struggling because
+      demand does not exist. It is struggling because the intelligence that makes this business
+      what it is has not been packaged into infrastructure the business can access without
+      Toni and Tiffany being in every conversation.
+    </p>
+    <p>
+      Both sessions showed the same finding. Independently.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Where You Align -->
+  <section class="section">
+    <div class="section-label">The Collective Picture</div>
+    <h2>Where you align.<br><em>Both sessions confirmed this without prompting.</em></h2>
+
+    <div class="align-grid">
+      <div class="align-card">
+        <div class="align-icon">📐</div>
+        <div class="align-body">
+          <h3>The revenue model is sound</h3>
+          <p>YouTube → free School community → webinar → paid community → VIP ($5,997) → Inner Circle ($20K). A 40.9% VIP conversion rate. 100% conversion from webinar to paid community. The math works. The funnel is not the problem.</p>
+        </div>
+      </div>
+      <div class="align-card">
+        <div class="align-icon">▶️</div>
+        <div class="align-body">
+          <h3>YouTube is the right channel</h3>
+          <p>Pulling back from social media changed the quality of who was finding you. 100% of paid community members discovered you through YouTube. That decision was correct.</p>
+        </div>
+      </div>
+      <div class="align-card">
+        <div class="align-icon">🎯</div>
+        <div class="align-body">
+          <h3>You know who your client is</h3>
+          <p>55+. Capital-ready. In transition. A truck driver who has worked for 30 years and wants to create community impact. A realtor with property. A nurse looking for a second career that matters. They watch your content like Netflix.</p>
+        </div>
+      </div>
+      <div class="align-card">
+        <div class="align-icon">✅</div>
+        <div class="align-body">
+          <h3>Kiefer is real</h3>
+          <p>He paid $5,997 and hit level one of VIP in five days. He is not a theory. He is proof that the right client already exists in your ecosystem. The ICP does not need to be researched. It needs to be extracted and written down.</p>
+        </div>
+      </div>
+      <div class="align-card">
+        <div class="align-icon">⚙️</div>
+        <div class="align-body">
+          <h3>The operational gap is the same from both sides</h3>
+          <p>Sarah cannot manage the School community to your standard because your standard is not written down. Conan's content team had to be brought in-house because the quality brief lived in Tiffany's head. GHL is not operational because the intelligence that should live in it has not been extracted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Where You Diverge -->
+  <section class="section">
+    <div class="section-label">The One Divergence</div>
+    <h2>Where you diverge.<br><em>This is the source of every other delay.</em></h2>
+
+    <p>
+      There is one divergence between the two sessions. It is the reason the million dollar message
+      has been in development for months without landing.
+    </p>
+
+    <div class="diverge-split">
+      <div class="diverge-card toni">
+        <div class="founder-label">Toni's Logic</div>
+        <p>Start from Inner Circle. Establish $20K as the north star. Attract the client who belongs there and let VIP be the natural entry for people who are not quite ready. The offer direction leads with the highest tier.</p>
+      </div>
+      <div class="diverge-card tiffany">
+        <div class="founder-label">Tiffany's Logic</div>
+        <p>Follow the mentor's model. Prove VIP at volume. Run the summit. Let Inner Circle emerge after the first cohort demonstrates the full program works. The sequence holds.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 16px;">
+      <p>
+        Neither is wrong. But the business is currently trying to finalize one message that serves
+        both strategies simultaneously. A message cannot serve two north stars. It will keep
+        circling until the offer direction is resolved.
+      </p>
+      <p>
+        <strong>The resolution is not about choosing a winner between two strategies.</strong>
+        It is about locking the ICP first. Once you know exactly who you are speaking to,
+        not instinctively but in writing, the offer direction becomes obvious. Right now the
+        message is guessing.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ICP -->
+  <section class="section">
+    <div class="section-label">Your ICP</div>
+    <h2>Written down for the first time.<br><em>This is a decision filter, not a checklist.</em></h2>
+
+    <p>
+      Every piece of content, every webinar, every VIP intake runs through this.
+      55+. Working their entire career in one lane. Now has capital, credibility, and a strong
+      desire to create community impact before they stop working. They are not building a startup.
+      They are building a legacy.
+    </p>
+
+    <div class="icp-grid">
+      <div class="icp-card">
+        <h3>The Truck Driver with Capital</h3>
+        <p>20 to 30 years of consistent income. Has money sitting. Wants to put it toward something that matters to their city or neighborhood.</p>
+      </div>
+      <div class="icp-card">
+        <h3>The Realtor with Property</h3>
+        <p>Already owns real estate. Wants to transition existing assets into a transitional housing program that generates income and impact.</p>
+      </div>
+      <div class="icp-card">
+        <h3>The Nurse or Healthcare Professional</h3>
+        <p>Has spent their career serving vulnerable populations. Wants to create a structure that extends that service without burning themselves out in a clinical role.</p>
+      </div>
+      <div class="icp-card">
+        <h3>The Career Transitioner with Capital</h3>
+        <p>Any background. Has enough saved and enough experience to know that the next chapter should mean something.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 40px; font-size: clamp(18px, 2.5vw, 22px);">How they move.</h2>
+
+    <div class="behavior-list">
+      <div class="behavior-item">
+        <div class="behavior-dot"></div>
+        <p>They find you through YouTube. The content has to meet them where they are researching, not where they are scrolling.</p>
+      </div>
+      <div class="behavior-item">
+        <div class="behavior-dot"></div>
+        <p>They need approximately 17 touches before they purchase. The nurture sequence matters more than the close call.</p>
+      </div>
+      <div class="behavior-item">
+        <div class="behavior-dot"></div>
+        <p>They will tell you they don't have time. The response is specificity: this is exactly what is required, this is exactly what it produces.</p>
+      </div>
+      <div class="behavior-item">
+        <div class="behavior-dot"></div>
+        <p>Once they are in, they are completely in. Kiefer's five-day result is not an outlier. It is what a motivated, aligned client does when the path is clear.</p>
+      </div>
+      <div class="behavior-item">
+        <div class="behavior-dot"></div>
+        <p>The free content creates a competence illusion. The close is not about convincing them. It is about showing them the difference between knowing the steps and having the program behind you when the hard part hits.</p>
+      </div>
+    </div>
+
+    <div class="anti-icp-box">
+      <div class="anti-label">Who to Stop Attracting</div>
+      <p>
+        When the message is broad — "purpose-driven leaders," "create transformation" — it pulls
+        people who are looking for a program to rescue them. That is not your client.
+        Your client has already decided to build. The message that attracts a Michael or a Monique
+        promises too much and asks too little. The message that attracts a Kiefer is specific about
+        what the program requires and what it produces.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Three Key Findings -->
+  <section class="section">
+    <div class="section-label">Key Findings</div>
+    <h2>Three things neither session<br><em>could show on its own.</em></h2>
+
+    <div class="findings-list">
+      <div class="finding-card">
+        <div class="finding-num">1</div>
+        <div class="finding-body">
+          <h3>The message is waiting on a decision that has not been made</h3>
+          <p>The million dollar message cannot finalize while two offer strategies are running simultaneously. ICP definition resolves the strategy. Strategy resolves the message. The message resolves the funnel. Everything is downstream of the ICP.</p>
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-num">2</div>
+        <div class="finding-body">
+          <h3>Packaging is the real IP protection</h3>
+          <p>This is not the first time someone has copied what you built. The attorney handles the immediate situation. What gets copied is always the surface — the words, the hooks, the framework names. What cannot be copied is the infrastructure underneath: the operating logic, the curriculum architecture, the decision framework Toni has built over 20 years. When that is packaged into the Business Brain, a competitor can copy the surface and still be years behind.</p>
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-num">3</div>
+        <div class="finding-body">
+          <h3>Kiefer is proof. The ICP just needs to come out.</h3>
+          <p>Both founders know what a Kiefer looks like. The instinct is consistent and correct. The extraction work is not research — it is articulation. Everything needed to build the full ICP profile already exists in the two of you. Refine what is in this document. Add the specifics only you know. Then load it into infrastructure so Sarah, the content team, and the funnel are all working from the same picture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- What Comes Next -->
+  <section class="section">
+    <div class="section-label">The Build Sequence</div>
+    <h2>What comes next.<br><em>Six steps. In order.</em></h2>
+
+    <p>
+      The Business Brain takes everything in this document and everything else the two of you
+      carry and builds the infrastructure so the business can access it without routing every
+      decision back through you.
+    </p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>ICP Lock</h3>
+          <p>Start with the ICP section above. Refine it together. Add the criteria you know from intake calls that are not in this document. This becomes the first layer of the Business Brain and the input that resolves the offer direction question.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Offer Direction Resolution</h3>
+          <p>A single facilitated session where both of you are in the room. The question on the table: given the ICP we just locked, does the message lead with Inner Circle or VIP? One session. One decision. Removes the blocker on everything downstream.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Million Dollar Message</h3>
+          <p>Once the ICP and offer direction are set, the message builds in days, not months. It has been circling because it had no anchor. The ICP is the anchor.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>GHL Intelligence Load</h3>
+          <p>The Business Brain feeds GHL. Routing logic, intake criteria, community tiers, offer entry points — all of it flows from the packaged intelligence into the tool. Sarah now has a source of truth. The funnel runs without Toni and Tiffany approving every step.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Inner Circle Offer Document</h3>
+          <p>A year-long partnership at $20K. Program development, sustainable skills training, business structure, backend revenue sharing. Written, positioned, and ready to close 1 to 2 proof-of-concept clients before the first VIP cohort completes.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>Content Standard for Sarah and the Team</h3>
+          <p>The brand brief. The quality criteria. The ICP filter for every piece of content that leaves the business. Sarah stops coming back to Tiffany for approvals on things the brief should resolve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Closing -->
+  <section class="section">
+    <div class="closing-block">
+      <h3>You built something your own mentor<br>says he has <em>never seen before.</em></h3>
+      <p>
+        The product is real. The demand is real. The conversion rate is real. What has not yet
+        been built is the infrastructure that lets the business move from what you know, without
+        waiting for one of you to be available to explain it.
+      </p>
+      <p>
+        Five days of travel created a content backlog. A developer crisis pulled Tiffany's
+        attention for two months. A content team had to be brought in-house because the standard
+        was not written down. These are not execution failures. They are intelligence packaging
+        failures. The intelligence is there. It is just still inside you.
+      </p>
+      <p>
+        The Business Brain changes that. Not by replacing what you know. By making it accessible
+        without you being in the room.
+      </p>
+      <div class="tagline">Build it so it moves.</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand"><span>Ecrof Media Co</span> · Brain Map Delivery</div>
+    <div class="footer-note">Prepared for Toni &amp; Tiffany · April 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
